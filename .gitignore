@@ -1,2 +1,6 @@
-/.next/		       # i believe bc this is created by next build or next dev anyways??
-/node_modules/	 # i believe bc anyone else can run npm init and it'll install our dependencies from the package.json file
+
+# i believe bc this is created by next build or next dev anyways??
+/.next/		    
+
+# i believe bc anyone else can run npm init and it'll install our dependencies from the package.json file
+/node_modules/	 
