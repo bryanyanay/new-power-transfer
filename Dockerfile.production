@@ -25,9 +25,11 @@ WORKDIR /app
 # take the loaded dependencies from the deps stage and load it into this stage's container
 COPY --from=deps /app/node_modules ./node_modules
 
-# copy in files next uses to build
+# copy in files next uses to build 
+# this does include the package.json and package-lock.json files, idk why exactly?? (since we already loaded the dependencies previously)
+# acc i believe this is bc npm run needs the package file to know what the "build" script is
 COPY next.config.js ./
-# [not sure we need this line, since we've already loaded deps no?] COPY package.json package-lock.json ./
+COPY package.json package-lock.json ./
 COPY pages ./pages
 COPY public ./public
 # we may need to add other source files that the build requires later, like styles if we ever create such a directory
