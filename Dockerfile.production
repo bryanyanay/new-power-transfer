@@ -1,5 +1,9 @@
 # we use a multi-stage dockerfile, where only the final stage is kept, while we just take what we need from the previous stages and discard them afterwards to keep the image small
 
+# helpful sources:
+# https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
+# https://www.youtube.com/watch?v=aNh8iShFXto
+
 # STAGE: loading dependencies 
 # we're using image of node.js version 19.2 running on alpine (lightweight linux distro)
 FROM node:19.2-alpine AS deps
