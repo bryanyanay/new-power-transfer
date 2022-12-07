@@ -8,8 +8,10 @@ This time I'm planning on using Tailwind CSS and docker as well.
    - run in the root directory of project
    - builds the image with ur desired tag
    - username/imagename format for image name (or repo name) explanation: https://stackoverflow.com/questions/37815524/docker-build-tag-repository-name
- - RUN PRODUCTION CONTAINER: `docker run --name power-transfer -p 3000:300 bryanyanay/power-transfer:<tag-name>` 
+ - RUN PRODUCTION CONTAINER: `docker run --name power-transfer -p 3000:3000 bryanyanay/power-transfer:<tag-name>` 
    - `docker stop power-transfer` to stop, then `docker rm power-transfer` to delete container
    - `--rm` flag add to docker run in order to automatically delete after stopping
    - `-d` flag add to docker run to push the container running to the background, so u keep ur shell (currently I can't recover my shell without this flag)
  - VIEW PRODUCTION SITE: go to localhost:3000
+ - PUSH TO DOCKER HUB: `docker push bryanyanay/power-transfer:<tag-name>` 
+   - probs have to login first; `docker login` otherwise says access denied
