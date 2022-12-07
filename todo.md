@@ -1,6 +1,6 @@
 
 ### Immediate
- - [ ] add the next.config.js file to enable standalone
+ - [x] add the next.config.js file to enable standalone
 
 ### Overview
 - [ ] construct simple interface (try using tailwind)
