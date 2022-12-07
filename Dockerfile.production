@@ -1,0 +1,64 @@
+# we use a multi-stage dockerfile, where only the final stage is kept, while we just take what we need from the previous stages and discard them afterwards to keep the image small
+
+# STAGE: loading dependencies 
+# we're using image of node.js version 19.2 running on alpine (lightweight linux distro)
+FROM node:19.2-alpine AS deps
+
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+# apk is alpine's package manager
+RUN apk add --no-cache libc6-compat
+
+WORKDIR /app
+# loading npm's tracking files into our container's workdir 
+COPY package.json package-lock.json ./
+# npm ci has some differences from npm install: https://stackoverflow.com/questions/52499617/what-is-the-difference-between-npm-install-and-npm-ci
+RUN npm ci
+
+# STAGE: building the source code (to get target js and etc files)
+FROM node:19.2-alpine AS builder
+WORKDIR /app
+
+# take the loaded dependencies from the deps stage and load it into this stage's container
+COPY --from=deps /app/node_modules ./node_modules
+
+# copy in files next uses to build
+COPY next.config.js ./
+# [not sure we need this line, since we've already loaded deps no?] COPY package.json package-lock.json ./
+COPY pages ./pages
+COPY public ./public
+# we may need to add other source files that the build requires later, like styles if we ever create such a directory
+
+RUN npm run build
+
+# STAGE: finally run the server process!
+FROM node:19.2-alpine AS runner
+
+WORKDIR /app
+
+# this is an env variable popularized by express i believe, but now used by many other frameworks
+# an application run by node can check this env variable and do diff things based on whether it is "development" or "production"
+# i believe next or react or smth uses this somehow, so we set it here
+ENV NODE_ENV production 
+
+# create new system group and users; system users r a convention that represent "machine/program" users that have to run processes rather than normal human users
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# we copy the necessary built targets, also setting their group and user ownership
+# for more info on the targets we're loading: https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# video [ytcode: aNh8iShFXto] also loads /app/public to ./public, do we need that?
+
+USER nextjs
+
+# i believe this just documents that the container should b listening on port 3000; doesn't actually publish port 3000 tho, i believe we must do that using flag with docker run 
+# by default assumes its a TCP port
+EXPOSE 3000
+
+# PORT env variable is used by certain hosts to tell what port ur web server should b listening on i believe: https://stackoverflow.com/questions/18864677/what-is-process-env-port-in-node-js
+ENV PORT 3000
+
+# i believe in the standalone directory we loaded next provides a server.js file that we must run with node to start up the server
+# note that CMD specifies processes to run when the container starts up; while RUN specifies shell commands to run to create the container (or smth like that)
+CMD ["node", "server.js"]
