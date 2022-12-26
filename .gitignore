@@ -5,5 +5,5 @@
 # i believe bc this is created by next build or next dev anyways??
 /.next/
 
-
+.env.local
 

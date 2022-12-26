@@ -10,6 +10,10 @@
 
  - [ ] leave out typescript for now, integrate later
 
+### MISC
+ - data fetching strat: probably static generation along with client-side data fetching (use SWR?) to hit our api end-points?
+   - this means we need loading states though
+
 ### Future
  - [ ] add a .dockerignore file? (https://codefresh.io/blog/not-ignore-dockerignore-2/)
  - [ ] configure https instead of http?
@@ -18,5 +22,6 @@
    - acc for some reason when I host on lightsail it's already https with the proper port? is it bc the container isn't directly exposed to internet but thru some of AWS's stuff?
  - [ ] register a custom domain?
  - [ ] look into SWR for client-side data fetching
+ - [ ] check out the going to production notes: https://nextjs.org/docs/going-to-production
 
 
