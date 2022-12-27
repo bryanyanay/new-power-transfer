@@ -23,5 +23,6 @@
  - [ ] register a custom domain?
  - [ ] look into SWR for client-side data fetching
  - [ ] check out the going to production notes: https://nextjs.org/docs/going-to-production
+ - [ ] add support for mobile screens
 
 
