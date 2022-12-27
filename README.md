@@ -1,6 +1,14 @@
-This is me rebuilding the power transfer app from scratch, as a review of React, Next.js, YugabyteDB, Hasura, Auth0, Typescript, etc.
+This is me rebuilding the power transfer app from scratch, as a review of a bunch of web dev stuff.
 
 This time I'm planning on using Tailwind CSS and docker as well.
+
+### Stack
+ - Next.js framework
+ - NextAuth.js for authentication & security
+ - React for UI
+ - TailwindCSS for styling
+ - [YugabyteDB for database? Hasura on top?]
+ - Hosted in a docker container
 
 ### Useful commands
  - DEV SERVER: `npm run dev` to start up the dev server, with hot reloading and the like
