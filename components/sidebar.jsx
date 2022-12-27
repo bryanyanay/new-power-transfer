@@ -13,6 +13,7 @@ function Sidebar() {
         <Link href="/transfer">Transfer</Link>
         <Link href="/history">History</Link>
         <Link href="/vehicles">Vehicles</Link>
+        <Link href="/signin">Sign In</Link>
       </div>
     </nav>
   )
