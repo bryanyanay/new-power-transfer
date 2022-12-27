@@ -1,3 +1,5 @@
+/* the layers must be listed in this order, so that precedence is correct (since in css order influences precedence) */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
