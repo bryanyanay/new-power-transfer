@@ -1,6 +1,15 @@
+import Head from "next/head";
+
 
 function Vehicles() {
-  return <div>vehicles</div>;
+  return (
+    <div>
+      <Head>
+        <title>Vehicles</title>
+      </Head>
+      vehicles
+    </div>
+  );
 }
 
 export default Vehicles;

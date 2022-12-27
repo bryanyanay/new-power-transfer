@@ -1,6 +1,14 @@
+import Head from "next/head";
 
 function Transfer() {
-  return <div>transfer</div>;
+  return (
+    <div>
+      <Head>
+        <title>Transfer</title>
+      </Head>
+      transfer
+    </div>
+  );
 }
 
 export default Transfer;
