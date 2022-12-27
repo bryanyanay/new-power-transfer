@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Header from "../components/header";
+import Subheader from "../components/subheader";
 
 function SignIn() {
   return (
@@ -6,7 +8,8 @@ function SignIn() {
       <Head>
         <title>Sign In/Up</title>
       </Head>
-      sign in or up
+      <Header>Sign In/Up</Header>
+      <Subheader>Sign in or sign up here to get started!</Subheader>
     </div>
   );
 }
