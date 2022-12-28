@@ -5,14 +5,18 @@ import "../styles/globals.css";
 import Layout from "../components/layout";
 import Head from "next/head";
 
-function PowerTransfer({ Component, pageProps }) {
+import { SessionProvider } from "next-auth/react";
+
+function PowerTransfer({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <Layout>
-      <Head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-      </Head>
-      <Component {...pageProps}/>
-    </Layout>
+    <SessionProvider session={session}>
+      <Layout>
+        <Head>
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        </Head>
+        <Component {...pageProps}/>
+      </Layout>
+    </SessionProvider>
   );
 }
 

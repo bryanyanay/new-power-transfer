@@ -2,6 +2,9 @@ This is me rebuilding the power transfer app from scratch, as a review of a bunc
 
 This time I'm planning on using Tailwind CSS and docker as well.
 
+### Misc.
+ - remember to set NEXTAUTH_URL env var when deploying to production: https://next-auth.js.org/getting-started/example
+
 ### Stack
  - Next.js framework
  - NextAuth.js for authentication & security

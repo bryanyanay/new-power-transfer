@@ -1,6 +1,7 @@
 
 ### Immediate
  - [x] add the next.config.js file to enable standalone
+ - [ ] add custom sign in/up page
 
 ### Overview
  - [ ] construct simple interface (try using tailwind)
@@ -9,10 +10,6 @@
  - [ ] look into how to start up in a container, and host on AWS lightsail
 
  - [ ] leave out typescript for now, integrate later
-
-### MISC
- - data fetching strat: probably static generation along with client-side data fetching (use SWR?) to hit our api end-points?
-   - this means we need loading states though
 
 ### Future
  - [ ] add a .dockerignore file? (https://codefresh.io/blog/not-ignore-dockerignore-2/)
