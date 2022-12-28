@@ -2,6 +2,7 @@
 ### Immediate
  - [x] add the next.config.js file to enable standalone
  - [ ] add custom sign in/up page
+ - [ ] i believe i have to add some stuff to the production dockerfile now that i've done a bunch more
 
 ### Overview
  - [ ] construct simple interface (try using tailwind)

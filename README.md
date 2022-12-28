@@ -4,6 +4,7 @@ This time I'm planning on using Tailwind CSS and docker as well.
 
 ### Misc.
  - remember to set NEXTAUTH_URL env var when deploying to production: https://next-auth.js.org/getting-started/example
+   - and actually there are some other things to set up too when deploying to production
 
 ### Stack
  - Next.js framework
