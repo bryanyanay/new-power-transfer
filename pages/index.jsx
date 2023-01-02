@@ -6,6 +6,8 @@ import { useSession } from "next-auth/react";
 function Home() {
 	const {data: session, status} = useSession();
 
+	// do we have to deal with "loading" status (e.g., display loading symbol)? it seems fine for now
+
 	return (
 		<div className="text-black"> 
 			<Head>

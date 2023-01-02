@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Logo from "./logo";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 
 
 function Sidebar() {
@@ -13,9 +14,15 @@ function Sidebar() {
   return (
     <section className="flex-none selection:bg-cyan-50 selection:text-cyan-700 flex flex-col items-center gap-8 bg-cyan-700 p-5 pt-8 h-screen w-72">
       <h1 className="text-cyan-50 text-3xl font-bold">Power Transfer</h1>
-      <div className="bg-cyan-50 w-36 h-36 p-6 rounded-full hover:animate-spin">
-        <Logo className="fill-cyan-700"/>
-      </div>
+      
+        {session ? 
+          (<Image className="rounded-full shadow-inner hover:animate-spin" width={150} height={150} src={session.user.image} alt="User profile image" />) :
+          (
+          <div className="bg-cyan-50 w-36 h-36 p-6 rounded-full hover:animate-spin">
+            <Logo className="fill-cyan-700"/>
+          </div>
+          )
+        }
       
       <nav className="flex flex-col items-stretch text-cyan-50 text-2xl font-bold w-full">
         <Link className="transition hover:scale-105 hover:bg-cyan-600 text-center p-2" href="/">Home</Link>
@@ -29,7 +36,5 @@ function Sidebar() {
     </section>
   )
 }
-
-
 
 export default Sidebar;

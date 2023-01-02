@@ -1,18 +1,10 @@
 ### Current notes
- - on sign out, to redirect to the homepage use () => signOut({ callbackUrl: "/" })
-   - arrow function is necessary since otherwise the signOut function will be automatically called instead of stored for later calling on button click
-
-for custom signin page, it looks like:
- - we need to configure the pages option: https://next-auth.js.org/configuration/pages
- - we use getProviders and enumerate over the resulting data to create sign in buttons for each configured provider
- - we don't need csrf tokens if we're just using oauth type sign in
- - we pass the provider.id to signIn to directly start the correct OAuth flow for each button
-   - also put it in arrow function so that it's not immediately called
 
 
 ### Immediate
  - [x] add the next.config.js file to enable standalone
- - [ ] add custom sign in/up page
+ - [x] add custom sign in/up page
+ - [ ] create the signed-in pages (just the UI)
  - [ ] i believe i have to add some stuff to the production dockerfile now that i've done a bunch more
 
 ### Overview
