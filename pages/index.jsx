@@ -29,7 +29,7 @@ function Home() {
 		page = (
 			<div className="text-black">
 				<Head>
-					<title>{session.user.name} Home - Power Transfer</title>
+					<title>{session.user.name.split(" ")[0]}'s Home - Power Transfer</title>
 				</Head>
 				<Header>Welcome back {session.user.name.split(" ")[0]}!</Header>
 				<Subheader>What would you like to do today?</Subheader>
