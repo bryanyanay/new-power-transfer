@@ -2,7 +2,7 @@
 
 function Subheader({children}) {
   return (
-    <h3 className="text-xl">{children}</h3>
+    <h3 className="text-xl mb-8">{children}</h3>
   );
 }
 

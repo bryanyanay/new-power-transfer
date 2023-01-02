@@ -24,8 +24,7 @@ function Sidebar() {
         <Link className="transition hover:scale-105 hover:bg-cyan-600 text-center p-2" href="/vehicles">Vehicles</Link>
       </nav>
 
-      {/*<Link href="/signin" className="transition hover:shadow-lg hover:shadow-cyan-900 hover:-translate-y-1 hover:bg-cyan-800 hover:text-cyan-50 mt-auto mb-5 bg-cyan-50 rounded-full p-5 pt-3 pb-3 text-cyan-700 text-2xl font-bold">Sign In</Link> */}
-      <button onClick={!session ? signIn : () => signOut({ callbackUrl: "/" })} className="transition hover:shadow-lg hover:shadow-cyan-900 hover:-translate-y-1 hover:bg-cyan-800 hover:text-cyan-50 mt-auto mb-5 bg-cyan-50 rounded-full p-5 pt-3 pb-3 text-cyan-700 text-2xl font-bold">Sign {!session ? "In" : "Out"} </button> {/* must change this to sign out if the user is signed in */}
+      <button onClick={!session ? signIn : () => signOut({ callbackUrl: "/" })} className="transition hover:shadow-lg hover:shadow-cyan-900 hover:-translate-y-1 hover:bg-cyan-800 hover:text-cyan-50 mt-auto mb-5 bg-cyan-50 rounded-full p-5 pt-3 pb-3 text-cyan-700 text-2xl font-bold">Sign {!session ? "In" : "Out"} </button> 
             
     </section>
   )

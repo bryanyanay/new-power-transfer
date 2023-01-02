@@ -20,8 +20,3 @@ function Home() {
 }
 
 export default Home;
-
-// do i need to use unstable_getServerSession first in getServerSideProps like shown here?: https://next-auth.js.org/getting-started/client#sessionprovider
-// or maybe this is only for pages that we only want rendered when there is a session??
-// or maybe we'd do it this way: https://next-auth.js.org/getting-started/client#custom-client-session-handling
-// watch a tutorial to clear things up
