@@ -1,7 +1,11 @@
 ### Current notes
+
+ONCE DONE, MOVE SOME OF THESE NOTES TO FUTURE
+
 use and database design related notes:
  - each user is identified by a unique userId (but how would we identify a user's correct userId?)
    - rn i'm thinking use their email as identification; but then couldn't multiple Oauth services have the same email? don't we want different accounts for them?
+   - for now i think just email is fine, but eventually maybe either change so that we store the accounts ourselves or 
 
 for transfer page:
  - it'll be a form; we can start then stop it
@@ -9,6 +13,7 @@ for transfer page:
  - maybe add the ability to add misc notes to the particular transfer?
  - what if they click away from the page while it's still transferring?
  - since its a mock up, maybe just have a field entering the amt to transfer for now
+ - also learn about how to use next-auth's csrf tokens for this form
 
 for vehicles page:
  - how are we going to deal with adding/deleting vehicles? are there best practices for this?
@@ -41,12 +46,7 @@ for history page:
 
 ### Future
  - [ ] add a .dockerignore file? (https://codefresh.io/blog/not-ignore-dockerignore-2/)
- - [ ] configure https instead of http?
- - [ ] make it available on a proper port, rather than port 3000
-   - i believe this is done by setting the PORT env variable (see server.js in .next/standalone, it uses that env variable)
-   - acc for some reason when I host on lightsail it's already https with the proper port? is it bc the container isn't directly exposed to internet but thru some of AWS's stuff?
  - [ ] register a custom domain?
- - [ ] look into SWR for client-side data fetching
  - [ ] check out the going to production notes: https://nextjs.org/docs/going-to-production
  - [ ] add support for mobile screens
 

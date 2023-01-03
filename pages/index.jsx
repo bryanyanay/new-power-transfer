@@ -4,6 +4,8 @@ import Header from "../components/header";
 import Subheader from "../components/subheader";
 
 import { useSession } from "next-auth/react";
+import { unstable_getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]";
 
 function LinkBox({ title, desc, dest }) { // the 60px in the svg arrow's top positioning is height of box minus height of svg divided by 2
 	return (
@@ -56,3 +58,12 @@ function Home() {
 }
 
 export default Home;
+
+// we try fetching the session serverside, since otherwise if the user is already authenticated there will be a flash of the unauthenticated page (while the clientside fetches the session) before showing the authenticated page, which is bad user experience
+export async function getServerSideProps({ req, res }) { 
+	return {
+		props: {
+			session: await unstable_getServerSession(req, res, authOptions)
+		}
+	};
+}

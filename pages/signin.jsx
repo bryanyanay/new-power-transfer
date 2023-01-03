@@ -31,8 +31,7 @@ This solved it: https://stackoverflow.com/questions/70746528/webpack-with-next-j
 
 basically I had to actually start using my server-side only imports in getServerSideProps, since otherwise next.js doesn't know I only need it for serverside and will bundle it with both server and client side, super sneaky error! */
 
-export async function getServerSideProps(ctx) {
-  const {req, res} = ctx;
+export async function getServerSideProps({ req, res }) {
   const session = await unstable_getServerSession(req, res, authOptions); 
 
   if (session) { // if there's already a session redirect to homepage
