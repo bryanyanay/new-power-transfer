@@ -1,11 +1,21 @@
 ### Current notes
 
+ - [ ] add a temporary api endpoint to post the transfer page's input to
+ - [ ] add some indication of success on the transfer page upon transfer
+ - [ ] add form validation to the transfer page
+
 ONCE DONE, MOVE SOME OF THESE NOTES TO FUTURE
 
 use and database design related notes:
  - each user is identified by a unique userId (but how would we identify a user's correct userId?)
    - rn i'm thinking use their email as identification; but then couldn't multiple Oauth services have the same email? don't we want different accounts for them?
    - for now i think just email is fine, but eventually maybe either change so that we store the accounts ourselves or 
+
+show the user's id in the sidebar if they're authenticated
+
+validation:
+ - for our forms we should implement clientside validation, with errors being shown to the user immediately
+ - we must also implement serverside validation for security tho (since clientside validation could be circumvented by just using devtools i believe)
 
 for transfer page:
  - it'll be a form; we can start then stop it
@@ -23,6 +33,8 @@ for vehicles page:
  - we could make the change serverside (i.e., send POST request) then reload everything from the database
    - seems inefficient?
  - i think pseudo-reloading the page is the solution using next router, see: https://www.jamesperkins.dev/post/page-reload-with-ssr
+ - we should let them nickname their vehicles, and nicknames must be unique for each of a user's vehicles
+   - probably restrict it to just alphanumeric or smth
 
 for history page:
  - just a table listing past transactions
