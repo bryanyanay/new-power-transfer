@@ -1,4 +1,28 @@
 ### Current notes
+use and database design related notes:
+ - each user is identified by a unique userId (but how would we identify a user's correct userId?)
+   - rn i'm thinking use their email as identification; but then couldn't multiple Oauth services have the same email? don't we want different accounts for them?
+
+for transfer page:
+ - it'll be a form; we can start then stop it
+ - rn im thinking once it's stopped we send a POST request to some API endpoint to record the stop
+ - maybe add the ability to add misc notes to the particular transfer?
+ - what if they click away from the page while it's still transferring?
+ - since its a mock up, maybe just have a field entering the amt to transfer for now
+
+for vehicles page:
+ - how are we going to deal with adding/deleting vehicles? are there best practices for this?
+ - there will be a form for adding vehicles, and a similar form for deleting vehicles
+ - we could make the change client-side as well as serverside; like for adding, add a vehicle to some state array and also send a post request to some api endpoint
+   - however this seems like it could go out of sync;  if the POST request fails the clientside wouldn't be synced with the database
+ - we could make the change serverside (i.e., send POST request) then reload everything from the database
+   - seems inefficient?
+ - i think pseudo-reloading the page is the solution using next router, see: https://www.jamesperkins.dev/post/page-reload-with-ssr
+
+for history page:
+ - just a table listing past transactions
+ - look into how to implement a scroll bar
+ - should we able to sort/search?
 
 
 ### Immediate
