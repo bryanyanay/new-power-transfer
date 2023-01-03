@@ -10,7 +10,7 @@ function Sidebar() {
   console.log(status);
 
   return (
-    <section className="flex-none selection:bg-cyan-50 selection:text-cyan-700 flex flex-col items-center gap-8 bg-cyan-700 p-5 pt-8 h-screen w-72">
+    <section className="fixed top-0 flex-none selection:bg-cyan-50 selection:text-cyan-700 flex flex-col items-center gap-8 bg-cyan-700 p-5 pt-8 h-screen w-72">
       <h1 className="text-cyan-50 text-3xl font-bold">Power Transfer</h1>
       
         {session ? 
