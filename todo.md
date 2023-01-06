@@ -3,6 +3,7 @@
  - [ ] add a temporary api endpoint to post the transfer page's input to
  - [ ] add some indication of success on the transfer page upon transfer
  - [ ] add form validation to the transfer page
+ - [ ] make sure form is authenticated
 
 ONCE DONE, MOVE SOME OF THESE NOTES TO FUTURE
 
